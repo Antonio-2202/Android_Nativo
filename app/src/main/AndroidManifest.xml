@@ -29,6 +29,11 @@
             android:label="@string/title_activity_gmail_detail"
             android:theme="@style/Theme.AppCompat.DayNight" />
         <activity
+            android:name=".BottomNavigationActivity"
+            android:exported="false"
+            android:label="@string/title_activity_bottom_navigation"
+            android:theme="@style/Theme.AppCompat.DayNight" />
+        <activity
             android:name=".GmailFormActivity"
             android:exported="false"
             android:label="@string/title_activity_gmail_form"

@@ -35,17 +35,27 @@ class MenuAdapter(private val items: List<MenuItem>) : RecyclerView.Adapter<Menu
         holder.menuText.text = currentItem.title
         holder.menuImage.setImageResource(currentItem.imageResUrl)
 
-        if(currentItem.id == 1) {
-            holder.menuItem.setOnClickListener{
-                val context = it.context
-                val intent = Intent(context, GmailActivity::class.java)
-                context.startActivity(intent)
+        when (currentItem.id) {
+            1 -> {
+                holder.menuItem.setOnClickListener{
+                    val context = it.context
+                    val intent = Intent(context, GmailActivity::class.java)
+                    context.startActivity(intent)
+                }
             }
-        } else if(currentItem.id == 2) {
-            holder.menuItem.setOnClickListener{
-                val context = it.context
-                val intent = Intent(context, PhotoActivity::class.java)
-                context.startActivity(intent)
+            2 -> {
+                holder.menuItem.setOnClickListener{
+                    val context = it.context
+                    val intent = Intent(context, PhotoActivity::class.java)
+                    context.startActivity(intent)
+                }
+            }
+            3 -> {
+                holder.menuItem.setOnClickListener{
+                    val context = it.context
+                    val intent = Intent(context, BottomNavigationActivity::class.java)
+                    context.startActivity(intent)
+                }
             }
         }
     }
