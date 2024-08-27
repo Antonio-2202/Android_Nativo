@@ -5,6 +5,7 @@ import com.example.learning_andriod.db.entities.Gmail
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class GmailRepository(private val gmailDao: GmailDao) {
 
@@ -20,7 +21,7 @@ class GmailRepository(private val gmailDao: GmailDao) {
         }
     }
 
-    fun getGmailById(gmailId: String, callback: (Gmail?) -> Gmail?) {
+    fun getGmailById(gmailId: String, callback: (Gmail?) -> Unit) {
         CoroutineScope(Dispatchers.IO).launch {
             val gmail = gmailDao.getGmailById(gmailId)
             callback(gmail)

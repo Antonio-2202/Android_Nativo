@@ -9,7 +9,7 @@ import com.example.learning_andriod.db.entities.Gmail
 @Dao
 interface GmailDao {
 
-    @Insert(onConflict = OnConflictStrategy.ROLLBACK)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertGmail(gmail: Gmail)
 
     @Insert(onConflict = OnConflictStrategy.ROLLBACK)

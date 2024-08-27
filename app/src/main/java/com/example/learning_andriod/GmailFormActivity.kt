@@ -1,22 +1,24 @@
 package com.example.learning_andriod
 
 import android.os.Bundle
-import android.text.Editable
+import android.util.Log
 import androidx.activity.ComponentActivity
 import com.example.learning_andriod.constants.AppConstants
-import com.example.learning_andriod.dao.FakeGmailDao
 import com.example.learning_andriod.databinding.ActivityGmailFormBinding
+import com.example.learning_andriod.db.AppDatabase
 import com.example.learning_andriod.domain.FormMode
 import com.example.learning_andriod.domain.GmailItem
+import com.example.learning_andriod.extensions.DataMapper
 import com.example.learning_andriod.extensions.toEditable
-import com.example.learning_andriod.singletons.GmailRepository
+import com.example.learning_andriod.repository.GmailRepository
 import java.util.Date
 import java.util.UUID
 
 class GmailFormActivity : ComponentActivity() {
 
     private lateinit var binding: ActivityGmailFormBinding
-    private val gmailRepository: FakeGmailDao = GmailRepository.getInstance()
+    private lateinit var gmailRepository: GmailRepository
+    private val mapper = DataMapper()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +34,10 @@ class GmailFormActivity : ComponentActivity() {
         binding.sendButton.setOnClickListener {
             createMailItem(item)
         }
+
+        val database = AppDatabase.getDatabase(this)
+        val gmailDao = database.gmailDao()
+        gmailRepository = GmailRepository(gmailDao)
 
     }
 
@@ -59,7 +65,7 @@ class GmailFormActivity : ComponentActivity() {
             )
         }
 
-        gmailRepository.createNewGmail(gmailItem)
+        gmailRepository.insertGmail(mapper.toDatabase(gmailItem))
         finish()
     }
 
