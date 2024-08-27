@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/lateral_margin_default"
+    android:gravity="center_horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/lateral_margin_small"
+            app:cardCornerRadius="@dimen/lateral_margin_small"
+            app:cardElevation="@dimen/lateral_margin_min">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/lateral_margin_default"
+                android:paddingVertical="@dimen/lateral_margin_medium">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Destinatario"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_medium"
+                    android:layout_marginBottom="@dimen/lateral_margin_min"/>
+
+                <EditText
+                    android:id="@+id/send_sender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:textSize="@dimen/lateral_margin_medium"
+                    android:minWidth="400dp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/lateral_margin_small"
+            app:cardCornerRadius="@dimen/lateral_margin_small"
+            app:cardElevation="@dimen/lateral_margin_min">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/lateral_margin_default"
+                android:paddingVertical="@dimen/lateral_margin_medium">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Título"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_medium"
+                    android:layout_marginBottom="@dimen/lateral_margin_min"/>
+
+                <EditText
+                    android:id="@+id/send_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/font_medium"
+                    android:background="@android:color/transparent"
+                    android:minWidth="400dp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/lateral_margin_small"
+            app:cardCornerRadius="@dimen/lateral_margin_small"
+            app:cardElevation="@dimen/lateral_margin_min">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/lateral_margin_default"
+                android:paddingVertical="@dimen/lateral_margin_medium">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mensaje"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_medium"
+                    android:layout_marginBottom="@dimen/lateral_margin_min"/>
+
+                <EditText
+                    android:id="@+id/send_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/font_medium"
+                    android:background="@android:color/transparent"
+                    android:gravity="top|start"
+                    android:minWidth="400dp"
+                    android:minHeight="350dp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/send_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/lateral_margin_medium"
+        android:padding="@dimen/lateral_margin_default"
+        android:text=""
+        android:textSize="@dimen/font_big"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:background="@drawable/gmail_form_send_button_background"/>
+
+</LinearLayout>

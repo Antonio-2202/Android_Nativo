@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mail_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingVertical="@dimen/lateral_margin_default"
+    android:paddingHorizontal="@dimen/lateral_margin_medium">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_default_account"
+        android:contentDescription="Default account icon"
+        android:layout_marginEnd="@dimen/lateral_margin_small"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/mail_receive_sender"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=""
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:layout_marginEnd="@dimen/lateral_margin_default"/>
+
+            <TextView
+                android:id="@+id/mail_receive_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:gravity="end"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+           <LinearLayout
+               android:layout_width="0dp"
+               android:layout_weight="1"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
+
+               <TextView
+                   android:id="@+id/mail_receive_subtitle"
+                   android:layout_height="wrap_content"
+                   android:layout_width="wrap_content"
+                   android:layout_weight="1"
+                   android:text=""
+                   android:textColor="@color/black"
+                   android:textStyle="bold"
+                   android:textSize="@dimen/font_small"
+                   android:ellipsize="end"
+                   android:maxLines="1"
+                   android:layout_marginEnd="@dimen/lateral_margin_min"/>
+
+               <TextView
+                   android:id="@+id/mail_receive_content"
+                   android:layout_height="wrap_content"
+                   android:layout_width="wrap_content"
+                   android:layout_weight="1"
+                   android:text=""
+                   android:textSize="10sp"
+                   android:ellipsize="end"
+                   android:maxLines="1"
+                   android:layout_marginEnd="@dimen/lateral_margin_min"/>
+
+           </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_favorites"
+                android:contentDescription="Favourites Icon" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

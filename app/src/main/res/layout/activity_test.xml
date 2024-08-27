@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/sunrise_login_"
+        android:contentDescription="Login Image"
+        android:scaleType="fitStart" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_sunrise_"
+        android:layout_marginStart="@dimen/lateral_margin_xbig"
+        android:layout_marginEnd="@dimen/lateral_margin_xbig"
+        android:contentDescription="Logo Image" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/lateral_margin_big">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/login_field_background"
+            android:layout_marginStart="@dimen/lateral_margin_default"
+            android:layout_marginEnd="@dimen/lateral_margin_default"
+            android:layout_marginBottom="@dimen/lateral_margin_big"
+            android:paddingStart="@dimen/lateral_margin_default"
+            android:paddingVertical="@dimen/lateral_margin_default"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_account"
+                android:layout_marginEnd="@dimen/lateral_margin_default"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RFGENNG"
+                android:textColor="@color/login_field"
+                android:textSize="@dimen/font_big"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/login_field_background"
+            android:layout_marginStart="@dimen/lateral_margin_default"
+            android:layout_marginEnd="@dimen/lateral_margin_default"
+            android:paddingStart="@dimen/lateral_margin_default"
+            android:paddingVertical="@dimen/lateral_margin_default"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_lock"
+                    android:layout_marginEnd="@dimen/lateral_margin_default"
+                    android:contentDescription="Lock Icon" />
+
+                <TextView
+                    android:id="@+id/passwordText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/login_field"
+                    android:textSize="@dimen/font_big"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/visibilityIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_visibility"
+                android:layout_marginEnd="@dimen/lateral_margin_default"
+                android:focusable="true"
+                android:clickable="true"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/lateral_margin_big"
+            android:layout_marginEnd="@dimen/lateral_margin_big"
+            android:layout_marginTop="@dimen/lateral_margin_xbig"
+            android:text="Login"
+            android:textSize="@dimen/font_big"
+            android:textColor="@color/white"
+            android:background="@drawable/login_button_background"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
+
+</LinearLayout>

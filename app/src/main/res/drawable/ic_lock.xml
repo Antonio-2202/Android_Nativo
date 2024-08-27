@@ -1,0 +1,10 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="960"
+    android:viewportHeight="960"
+    android:tint="?attr/colorControlNormal">
+    <path
+        android:fillColor="@color/login_field"
+        android:pathData="M240,880Q207,880 183.5,856.5Q160,833 160,800v-400Q160,367 183.5,343.5Q207,320 240,320h40v-80Q280,157 338.5,98.5Q397,40 480,40q83,0 141.5,58.5Q680,157 680,240v80h40q33,0 56.5,23.5Q800,367 800,400v400Q800,833 776.5,856.5Q753,880 720,880H240Zm240-200q33,0 56.5-23.5Q560,633 560,600q0-33-23.5-56.5Q513,520 480,520q-33,0-56.5,23.5Q400,567 400,600q0,33 23.5,56.5Q447,680 480,680ZM360,320h240v-80q0-50-35-85Q530,120 480,120q-50,0-85,35Q360,190 360,240v80Z"/>
+</vector>
