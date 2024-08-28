@@ -6,4 +6,13 @@
     android:background="@color/green"
     tools:context=".ClientFragment">
 
+    <Button
+        android:id="@+id/btnNavigate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="NAVEGAR"
+        android:textStyle="bold"/>
+
+
 </FrameLayout>
