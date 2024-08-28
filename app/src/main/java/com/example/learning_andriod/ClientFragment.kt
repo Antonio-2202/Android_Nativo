@@ -18,7 +18,11 @@ class ClientFragment : Fragment() {
         val btnNavigate = root.findViewById<Button>(btnNavigate)
 
         btnNavigate.setOnClickListener {
-            findNavController().navigate(action_clientFragment_to_commercialDemandFragment)
+            findNavController().navigate(
+                ClientFragmentDirections.actionClientFragmentToCommercialDemandFragment(
+                    username = "Lionel Messi"
+                )
+            )
         }
 
         return root

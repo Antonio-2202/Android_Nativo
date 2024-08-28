@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_commercialDemandFragment_to_visitFragment"
             app:destination="@id/visitFragment" />
+        <argument
+            android:name="username"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/visitFragment"
