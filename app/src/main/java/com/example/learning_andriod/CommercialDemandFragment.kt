@@ -8,11 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.learning_andriod.R.layout.fragment_commercial_demand
 
 class CommercialDemandFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(fragment_commercial_demand, container, false)
     }
 }

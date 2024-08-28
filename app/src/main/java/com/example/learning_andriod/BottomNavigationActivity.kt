@@ -1,16 +1,14 @@
 package com.example.learning_andriod
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
+import com.example.learning_andriod.R.layout.activity_bottom_navigation
 import com.example.learning_andriod.databinding.ActivityBottomNavigationBinding
 
-class BottomNavigationActivity : ComponentActivity() {
-
-    private lateinit var binding: ActivityBottomNavigationBinding
+class BottomNavigationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = ActivityBottomNavigationBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
+        setContentView(activity_bottom_navigation)
     }
 }
