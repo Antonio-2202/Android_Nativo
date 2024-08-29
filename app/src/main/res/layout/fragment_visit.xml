@@ -6,4 +6,13 @@
     android:background="@color/red"
     tools:context=".VisitFragment">
 
+    <TextView
+        android:id="@+id/tvUsernameReversed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="40sp"/>
+
 </FrameLayout>
