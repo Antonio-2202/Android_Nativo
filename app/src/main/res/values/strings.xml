@@ -15,4 +15,5 @@
     <string name="title_activity_gmail_detail">GmailDetailActivity</string>
     <string name="title_activity_gmail_form">GmailFormActivity</string>
     <string name="title_activity_photo">PhotoActivity</string>
+    <string name="title_activity_base">BaseActivity</string>
 </resources>

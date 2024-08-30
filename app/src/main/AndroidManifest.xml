@@ -21,28 +21,27 @@
         <activity
             android:name=".MenuActivity"
             android:exported="false"
-            android:label="@string/title_activity_menu"
-            android:theme="@style/Theme.Learning_Andriod" />
+            android:label="@string/title_activity_menu" />
         <activity
             android:name=".GmailDetailActivity"
             android:exported="false"
-            android:label="@string/title_activity_gmail_detail"
-            android:theme="@style/Theme.AppCompat.DayNight" />
+            android:label="@string/title_activity_gmail_detail" />
         <activity
             android:name=".GmailFormActivity"
             android:exported="false"
-            android:label="@string/title_activity_gmail_form"
-            android:theme="@style/Theme.AppCompat.DayNight" />
+            android:label="@string/title_activity_gmail_form" />
         <activity
             android:name=".PhotoActivity"
             android:exported="false"
-            android:label="@string/title_activity_photo"
-            android:theme="@style/Theme.AppCompat.DayNight" />
+            android:label="@string/title_activity_photo" />
         <activity
             android:name=".GmailActivity"
             android:exported="false"
-            android:label="@string/title_activity_gmail"
-            android:theme="@style/Theme.AppCompat.DayNight"/>
+            android:label="@string/title_activity_gmail" />
+        <activity
+            android:name=".BaseActivity"
+            android:exported="false"
+            android:label="@string/title_activity_base" />
         <activity
             android:name=".TestActivity"
             android:exported="true"
@@ -56,8 +55,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Learning_Andriod"/>
+            android:label="@string/app_name" />
     </application>
 
 </manifest>
