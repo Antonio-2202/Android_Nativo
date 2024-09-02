@@ -13,10 +13,10 @@ import com.example.learning_andriod.R.layout.fragment_list_employee
 import com.example.learning_andriod.domain.Employee
 import java.lang.RuntimeException
 
-class ListEmployeeFragment() : Fragment() {
+class ListEmployeeFragment : Fragment() {
 
     private var listAdapter: EmployeeListAdapter? = null
-    private var onOpenEmployeeDetailCallback: EmployeeListAdapter.OnOpenEmployeeDetail? = null
+    private var onOpenEmployeeDetailCallback: EmployeeListAdapter.OnOpenWelcomeEmployeeFragment? = null
 
     companion object {
         val TAG: String = ListEmployeeFragment::class.java.simpleName
@@ -30,7 +30,7 @@ class ListEmployeeFragment() : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is EmployeeListAdapter.OnOpenEmployeeDetail) {
+        if (context is EmployeeListAdapter.OnOpenWelcomeEmployeeFragment) {
             onOpenEmployeeDetailCallback = context
         } else {
             throw RuntimeException("$context debe implementar OnOpenEmployeeDetail")

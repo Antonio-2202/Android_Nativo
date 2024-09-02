@@ -14,11 +14,11 @@ import com.example.learning_andriod.domain.Employee
 class EmployeeListAdapter(
     val context: Context,
     private var employeeList: List<Employee>,
-    private val onOpenEmployeeDetailCallback: OnOpenEmployeeDetail
+    private val onOpenWelcomeEmployeeCallback: OnOpenWelcomeEmployeeFragment
 ) : RecyclerView.Adapter<EmployeeListAdapter.ViewHolder>() {
 
-    interface OnOpenEmployeeDetail {
-        fun onOpenEmployeeDetail(employeeName: String)
+    interface OnOpenWelcomeEmployeeFragment {
+        fun OnOpenWelcomeEmployeeFragment(employeeName: String)
     }
 
 
@@ -37,7 +37,7 @@ class EmployeeListAdapter(
         holder.employeeName.text = currentEmployee.name
 
         holder.employeeItem.setOnClickListener {
-            onOpenEmployeeDetailCallback.onOpenEmployeeDetail(currentEmployee.name)
+            onOpenWelcomeEmployeeCallback.OnOpenWelcomeEmployeeFragment(currentEmployee.name)
         }
     }
 
