@@ -63,7 +63,7 @@ class BaseActivity : AppCompatActivity(), EmployeeListAdapter.OnOpenWelcomeEmplo
         }
     }
 
-    override fun OnOpenWelcomeEmployeeFragment(employeeName: String) {
+    override fun onOpenWelcomeEmployeeFragment(employeeName: String) {
         val args = Bundle().apply {
             putString(AppConstants.EMPLOYEE_NAME, employeeName)
         }

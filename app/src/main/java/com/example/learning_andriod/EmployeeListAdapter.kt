@@ -18,7 +18,7 @@ class EmployeeListAdapter(
 ) : RecyclerView.Adapter<EmployeeListAdapter.ViewHolder>() {
 
     interface OnOpenWelcomeEmployeeFragment {
-        fun OnOpenWelcomeEmployeeFragment(employeeName: String)
+        fun onOpenWelcomeEmployeeFragment(employeeName: String)
     }
 
 
@@ -37,7 +37,7 @@ class EmployeeListAdapter(
         holder.employeeName.text = currentEmployee.name
 
         holder.employeeItem.setOnClickListener {
-            onOpenWelcomeEmployeeCallback.OnOpenWelcomeEmployeeFragment(currentEmployee.name)
+            onOpenWelcomeEmployeeCallback.onOpenWelcomeEmployeeFragment(currentEmployee.name)
         }
     }
 
