@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.learning_andriod.R.id.employee_list
 import com.example.learning_andriod.R.layout.fragment_list_employee
+import com.example.learning_andriod.constants.AppConstants
 import com.example.learning_andriod.domain.Employee
 import com.example.learning_andriod.interfaces.OnReloadData
 
@@ -23,6 +24,7 @@ class ListEmployeeFragment : Fragment(), OnReloadData {
 
     private var listAdapter: EmployeeListAdapter? = null
     private var onOpenEmployeeDetailCallback: EmployeeListAdapter.OnOpenWelcomeEmployeeFragment? = null
+    private var isBlackTheme: Boolean = false
 
     companion object {
         val TAG: String = ListEmployeeFragment::class.java.simpleName
@@ -49,6 +51,7 @@ class ListEmployeeFragment : Fragment(), OnReloadData {
             }
         }
 
+        isBlackTheme = !isBlackTheme
         listAdapter!!.notifyDataSetChanged()
     }
 
@@ -66,8 +69,18 @@ class ListEmployeeFragment : Fragment(), OnReloadData {
         onOpenEmployeeDetailCallback = null
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putBoolean(AppConstants.THEME, isBlackTheme)
+        super.onSaveInstanceState(outState)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (savedInstanceState != null) {
+            val theme = savedInstanceState.getBoolean(AppConstants.THEME)
+            Log.i("THEME", theme.toString())
+        }
 
         val employeeRecyclerView = view.findViewById<RecyclerView>(employee_list)
         employeeRecyclerView.layoutManager = LinearLayoutManager(context)

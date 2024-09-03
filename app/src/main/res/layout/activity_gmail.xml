@@ -52,6 +52,8 @@
                         android:hint="Search in mail"
                         android:textSize="@dimen/font_medium"
                         android:background="@android:color/transparent"
+                        android:singleLine="true"
+                        android:imeOptions="actionDone"
                         android:minWidth="250dp"/>
 
                 </HorizontalScrollView>
