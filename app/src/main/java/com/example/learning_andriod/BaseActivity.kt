@@ -25,7 +25,11 @@ class BaseActivity : AppCompatActivity(), EmployeeListAdapter.OnOpenWelcomeEmplo
 
         btnReload.setOnClickListener {
             val listView = findViewById<ConstraintLayout>(list_employee_fragment)
-            findCurrentFragment().onReloadData(listView.findViewById(employee_list))
+            var recyclerView: RecyclerView? = null
+
+            if (findCurrentFragment()::class.java.simpleName == ListEmployeeFragment.TAG) recyclerView = listView.findViewById(employee_list)
+
+            findCurrentFragment().onReloadData(recyclerView)
         }
 
         if(supportFragmentManager.backStackEntryCount < 1) injectListEmployeeFragment(null)

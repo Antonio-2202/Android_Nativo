@@ -34,9 +34,9 @@ class ListEmployeeFragment : Fragment(), OnReloadData {
         }
     }
 
-    override fun onReloadData(rv: RecyclerView) {
+    override fun onReloadData(rv: RecyclerView?) {
         for (i in 0 until listAdapter!!.itemCount) {
-            val viewHolder = rv.findViewHolderForAdapterPosition(i) as? EmployeeListAdapter.ViewHolder
+            val viewHolder = rv!!.findViewHolderForAdapterPosition(i) as? EmployeeListAdapter.ViewHolder
 
             viewHolder?.let {
                 if (it.employeeItem.cardBackgroundColor.defaultColor == Color.WHITE) {
