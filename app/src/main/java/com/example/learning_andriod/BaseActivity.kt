@@ -29,7 +29,7 @@ class BaseActivity : AppCompatActivity(), EmployeeListAdapter.OnOpenWelcomeEmplo
 
             if (findCurrentFragment()::class.java.simpleName == ListEmployeeFragment.TAG) recyclerView = listView.findViewById(employee_list)
 
-            findCurrentFragment().onReloadData(recyclerView)
+            findCurrentFragment().onReloadData()
         }
 
         if(supportFragmentManager.backStackEntryCount < 1) injectListEmployeeFragment(null)

@@ -36,23 +36,10 @@ class ListEmployeeFragment : Fragment(), OnReloadData {
         }
     }
 
-    override fun onReloadData(rv: RecyclerView?) {
-        for (i in 0 until listAdapter!!.itemCount) {
-            val viewHolder = rv!!.findViewHolderForAdapterPosition(i) as? EmployeeListAdapter.ViewHolder
-
-            viewHolder?.let {
-                if (it.employeeItem.cardBackgroundColor.defaultColor == Color.WHITE) {
-                    it.employeeItem.setCardBackgroundColor(Color.BLACK)
-                    it.employeeName.setTextColor(Color.WHITE)
-                } else {
-                    it.employeeItem.setCardBackgroundColor(Color.WHITE)
-                    it.employeeName.setTextColor(Color.BLACK)
-                }
-            }
-        }
-
+    override fun onReloadData() {
         isBlackTheme = !isBlackTheme
-        listAdapter!!.notifyDataSetChanged()
+        listAdapter?.setTheme(isBlackTheme)
+        listAdapter?.notifyDataSetChanged()
     }
 
     override fun onAttach(context: Context) {
@@ -78,33 +65,50 @@ class ListEmployeeFragment : Fragment(), OnReloadData {
         super.onViewCreated(view, savedInstanceState)
 
         if (savedInstanceState != null) {
-            val theme = savedInstanceState.getBoolean(AppConstants.THEME)
-            Log.i("THEME", theme.toString())
+            isBlackTheme = savedInstanceState.getBoolean(AppConstants.THEME)
+            Log.i("THEME", isBlackTheme.toString())
         }
 
         val employeeRecyclerView = view.findViewById<RecyclerView>(employee_list)
         employeeRecyclerView.layoutManager = LinearLayoutManager(context)
 
         val itemList: List<Employee> = listOf(
-            Employee(
-                name = "Antonio",
-            ),
-            Employee(
-                name = "Marcos",
-            ),
-            Employee(
-                name = "Fernando",
-            ),
-            Employee(
-                name = "Toño",
-            ),
-            Employee(
-                name = "Rafa",
-            )
+            Employee(name = "Antonio",),
+            Employee(name = "Marcos"),
+            Employee(name = "Fernando"),
+            Employee(name = "Toño"),
+            Employee(name = "Rafa")
         )
-        listAdapter = EmployeeListAdapter(requireContext(), itemList, onOpenEmployeeDetailCallback!!)
 
+        listAdapter = EmployeeListAdapter(requireContext(), itemList, onOpenEmployeeDetailCallback!!, isBlackTheme)
         employeeRecyclerView.adapter = listAdapter
+
+        if (isBlackTheme) {
+            applyBlackTheme(employeeRecyclerView)
+        } else {
+            applyWhiteTheme(employeeRecyclerView)
+        }
+
+    }
+
+    private fun applyBlackTheme(rv: RecyclerView) {
+        for (i in 0 until listAdapter!!.itemCount) {
+            val viewHolder = rv.findViewHolderForAdapterPosition(i) as? EmployeeListAdapter.ViewHolder
+            viewHolder?.let {
+                it.employeeItem.setCardBackgroundColor(Color.BLACK)
+                it.employeeName.setTextColor(Color.WHITE)
+            }
+        }
+    }
+
+    private fun applyWhiteTheme(rv: RecyclerView) {
+        for (i in 0 until listAdapter!!.itemCount) {
+            val viewHolder = rv.findViewHolderForAdapterPosition(i) as? EmployeeListAdapter.ViewHolder
+            viewHolder?.let {
+                it.employeeItem.setCardBackgroundColor(Color.WHITE)
+                it.employeeName.setTextColor(Color.BLACK)
+            }
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

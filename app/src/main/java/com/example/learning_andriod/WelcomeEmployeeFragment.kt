@@ -27,7 +27,7 @@ class WelcomeEmployeeFragment: Fragment(), OnReloadData {
         }
     }
 
-    override fun onReloadData(rv: RecyclerView?) {
+    override fun onReloadData() {
         if (tvWelcomeEmployee.currentTextColor == Color.BLACK) {
             tvWelcomeEmployee.setTextColor(Color.WHITE)
             tvWelcomeEmployee.setBackgroundColor(Color.BLACK)
