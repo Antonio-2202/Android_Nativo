@@ -20,6 +20,11 @@ class ProductsListAdapter(
     private var productList: List<Product>
 ) : RecyclerView.Adapter<ProductsListAdapter.ViewHolder>() {
 
+    fun updateData(newList: List<Product>) {
+        productList = newList
+        notifyDataSetChanged()
+    }
+
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val productItem: CardView = itemView.findViewById(product_list_item)
         val productTitle: TextView = itemView.findViewById(product_title)

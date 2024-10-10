@@ -25,7 +25,11 @@
                 android:hint="Search Products ..."
                 android:background="@null"
                 android:padding="@dimen/lateral_margin_default"
-                android:textSize="@dimen/font_medium"/>
+                android:textSize="@dimen/font_medium"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:singleLine="true"
+                android:focusable="auto"/>
 
         </androidx.cardview.widget.CardView>
 
