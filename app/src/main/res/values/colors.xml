@@ -10,5 +10,6 @@
     <color name="login_field_background">#F5DEC7</color>
     <color name="login_field">#EC891A</color>
     <color name="tag">#DDDDDD</color>
+    <color name="red">#FF0000</color>
     <color name="transparent">#00FFFFFF</color>
 </resources>
