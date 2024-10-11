@@ -1,5 +1,6 @@
 package com.example.learning_andriod
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,8 +18,14 @@ import com.example.learning_andriod.domain.Product
 import com.squareup.picasso.Picasso
 
 class ProductsListAdapter(
-    private var productList: List<Product>
+    private var context: Context,
+    private var productList: List<Product>,
+    private val onOpenApiCallsFragmentCallback: OnOpenApiCallsFragment,
 ) : RecyclerView.Adapter<ProductsListAdapter.ViewHolder>() {
+
+    interface OnOpenApiCallsFragment {
+        fun onOpenApiCallsFragment()
+    }
 
     fun updateData(newList: List<Product>) {
         productList = newList
@@ -43,6 +50,10 @@ class ProductsListAdapter(
         holder.productTitle.text = currentProduct.title
         holder.productDescription.text = currentProduct.description
         holder.productPrice.text = "${currentProduct.price}€"
+
+        holder.productItem.setOnClickListener {
+            onOpenApiCallsFragmentCallback.onOpenApiCallsFragment()
+        }
 
         Picasso.get().load(currentProduct.imageRoute).into(holder.productImage)
 

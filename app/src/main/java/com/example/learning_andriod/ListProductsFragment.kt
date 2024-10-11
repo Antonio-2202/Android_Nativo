@@ -23,6 +23,7 @@ import okhttp3.internal.notify
 class ListProductsFragment: Fragment() {
     private var listAdapter: ProductsListAdapter? = null
     private var itemList: List<Product> = listOf()
+    private var onOpenApiCallsFragmentCallback: ProductsListAdapter.OnOpenApiCallsFragment? = null
 
     companion object {
         val TAG: String = ListProductsFragment::class.java.simpleName
@@ -36,10 +37,16 @@ class ListProductsFragment: Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        if(context is ProductsListAdapter.OnOpenApiCallsFragment) {
+            onOpenApiCallsFragmentCallback = context;
+        } else {
+            throw RuntimeException("$context debe implementar OnOpenApiCallsFragment")
+        }
     }
 
     override fun onDetach() {
         super.onDetach()
+        onOpenApiCallsFragmentCallback = null
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -74,7 +81,7 @@ class ListProductsFragment: Fragment() {
                 itemList = productList ?: listOf()
 
                 activity?.runOnUiThread {
-                    listAdapter = ProductsListAdapter(itemList)
+                    listAdapter = ProductsListAdapter(requireContext(), itemList, onOpenApiCallsFragmentCallback!!)
                     productRecyclerView.adapter = listAdapter
                 }
             }
