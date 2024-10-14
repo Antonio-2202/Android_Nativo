@@ -4,21 +4,22 @@ import android.content.Context
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.learning_andriod.R.id.product_edit_text
 import com.example.learning_andriod.R.id.products_list
 import com.example.learning_andriod.R.layout.fragment_list_products
+import com.example.learning_andriod.apiClient.ApiClient
 import com.example.learning_andriod.domain.Product
 import com.example.learning_andriod.repository.ProductRepository
-import okhttp3.internal.notify
+import kotlinx.coroutines.launch
 
 class ListProductsFragment: Fragment() {
     private var listAdapter: ProductsListAdapter? = null
@@ -56,8 +57,6 @@ class ListProductsFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val productRepository = ProductRepository()
-
         val editText = view.findViewById<EditText>(product_edit_text)
         editText.setOnEditorActionListener { v, actionId, event ->
             if(actionId == EditorInfo.IME_ACTION_SEARCH || (event != null && event.keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN)) {
@@ -74,17 +73,12 @@ class ListProductsFragment: Fragment() {
         val productRecyclerView = view.findViewById<RecyclerView>(products_list)
         productRecyclerView.layoutManager = LinearLayoutManager(context)
 
-        productRepository.getProducts { productList, error ->
-            if(error != null) {
-                println("Error: $error")
-            } else {
-                itemList = productList ?: listOf()
-
-                activity?.runOnUiThread {
-                    listAdapter = ProductsListAdapter(requireContext(), itemList, onOpenApiCallsFragmentCallback!!)
-                    productRecyclerView.adapter = listAdapter
-                }
-            }
+        val productRepository = ProductRepository(ApiClient())
+        viewLifecycleOwner.lifecycleScope.launch {
+            val productList = productRepository.getProducts()
+            itemList = productList ?: listOf()
+            listAdapter = ProductsListAdapter(requireContext(), itemList, onOpenApiCallsFragmentCallback!!)
+            productRecyclerView.adapter = listAdapter
         }
     }
 
