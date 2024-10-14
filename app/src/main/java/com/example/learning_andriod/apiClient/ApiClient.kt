@@ -47,35 +47,6 @@ class ApiClient {
         }
     }
 
-    /*fun getProducts(callback: (List<Product>?, String?) -> Unit) {
-        val request = Request.Builder().url(url).build()
-
-        client.newCall(request).enqueue(object: Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                callback(null, e.message)
-            }
-
-            override fun onResponse(call: Call, response: Response) {
-                if(response.isSuccessful) {
-                    val responseBody = response.body?.string()
-
-                    //Convertir el JSON a una lista de Product
-                    val productListType = object  : TypeToken<List<WsProduct>>() {}.type
-                    val productResponseList: List<WsProduct> = gson.fromJson(responseBody, productListType)
-
-                    //Mapear la respuesta de la API a la entidad de Product
-                    val productList = productResponseList.map { wsProduct ->
-                        wsProduct.fromWsProduct(wsProduct)
-                    }
-
-                    callback(productList, null)
-                } else {
-                    callback(null, "Error en la respuesta: ${response.code}")
-                }
-            }
-        })
-    }*/
-
     suspend fun createProducts(product: WsProduct): Boolean {
         val requestBody = gson.toJson(product).toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())
         val request = Request.Builder().url(url).post(requestBody).build()
